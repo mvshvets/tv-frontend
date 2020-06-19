@@ -1,0 +1,41 @@
+@import '~shared/styles/const';
+
+$breadcumbs_text_color: #00000073;
+
+.breadcrumbs {
+    padding: 15px 40px;
+    margin: 10px 0 0;
+    border-bottom: 1px solid #d8d8d8;
+    list-style-type: none;
+    display: none;
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+
+        &:before {
+            content: '/';
+            display: inline-block;
+            margin: 0 5px;
+            color: $breadcumbs_text_color;
+        }
+
+        &:first-child:before {
+            display: none;
+        }
+
+        a {
+            color: $breadcumbs_text_color;
+
+            &:hover {
+                color: #40a9ff;
+            }
+        }
+    }
+}
+
+@media (min-width: $g_screen_lg) {
+    .breadcrumbs {
+        display: block;
+    }
+}
