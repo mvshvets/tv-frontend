@@ -5,6 +5,7 @@ import { PageContent } from 'core/components'
 import { InputControl, IconsAdapter } from 'shared/components'
 import { Programs, SelectProgram } from './components'
 import Student from 'shared/image/boy1.png'
+import Teacher from 'shared/image/slider1.png'
 
 export const MainPage: FC = React.memo(() => {
 
@@ -12,7 +13,9 @@ export const MainPage: FC = React.memo(() => {
         <PageContent className="main-page">
             <div className="carousel-wrapper">
                 <Carousel effect="fade">
-                    <div/>
+                    <div className={'slide'}>
+                            <img src={Teacher} alt={'Слайдер1'}/>
+                    </div>
                 </Carousel>
             </div>
 
@@ -28,8 +31,8 @@ export const MainPage: FC = React.memo(() => {
                 </Form>
             </div>
             <img src={Student} alt={'Парень'} className={'boy'}/>
-        <Programs/>
-        <SelectProgram/>
+            <Programs/>
+            <SelectProgram/>
         </PageContent>
     )
 })
