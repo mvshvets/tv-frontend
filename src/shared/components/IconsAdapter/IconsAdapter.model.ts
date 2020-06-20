@@ -23,6 +23,7 @@ export type IconType =
     | 'UserOutlined'
     | 'RightOutlined'
     | 'LikeOutlined'
+    | 'LockOutlined'
 
 export interface IconsAdapterProps
     extends Pick<

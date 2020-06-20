@@ -1,15 +1,16 @@
 import React, { FC, useCallback, useContext, useEffect, useState } from 'react'
 
 import { LoaderContext, UserContext } from 'core/context'
-import { UserContract } from './UserContext.model'
+import { Store } from 'rc-field-form/lib/interface'
 
 export const UserContextProvider: FC = React.memo(({ children }) => {
     const { setLoaderState } = useContext(LoaderContext)
-    const [userData, setUserData] = useState<UserContract | null>(null)
+    const [userData, setUserData] = useState<Store | null>(null)
 
     const onSetUserData = useCallback(
-        (userData: UserContract | null) => {
+        (userData: Store | null) => {
             setUserData(userData)
+            localStorage.setItem('userData', JSON.stringify(userData))
         },
         [setUserData]
     )

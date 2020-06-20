@@ -21,7 +21,8 @@ import {
     SettingOutlined,
     UserOutlined,
     RightOutlined,
-    LikeOutlined
+    LikeOutlined,
+    LockOutlined
 } from '@ant-design/icons'
 
 import { IconsAdapterProps } from './IconsAdapter.model'
@@ -56,6 +57,7 @@ export const IconsAdapter: React.FC<IconsAdapterProps> = React.memo(
             UserOutlined: <UserOutlined {...restProps} />,
             RightOutlined: <RightOutlined {...restProps} />,
             LikeOutlined: <LikeOutlined {...restProps} />,
+            LockOutlined: <LockOutlined {...restProps} />,
         }
 
         return <>{iconType ? iconsLibrary[iconType] : ''}</>

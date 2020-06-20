@@ -5,11 +5,12 @@ import './App.sass'
 import { Header, Footer } from 'core/components'
 import { Compose } from 'shared/components'
 import { Routing } from 'routing'
-import { DocumentTitleContextProvider, LoaderContextProvider, UserContextProvider } from 'core/context'
+import { DocumentTitleContextProvider, LoaderContextProvider, UserContextProvider, ModalsContextProvider } from 'core/context'
 import { BrowserRouter } from 'react-router-dom'
+import { Popups } from 'shared/popups'
 
 export const App: React.FC = () => {
-    return <div className="App">
+    return <div className="app">
         <ConfigProvider locale={ru_RU}>
             <Compose
                 components={[
@@ -17,6 +18,7 @@ export const App: React.FC = () => {
                     LoaderContextProvider,
                     UserContextProvider,
                     DocumentTitleContextProvider,
+                    ModalsContextProvider
                 ]}
             >
                 <Header/>
@@ -25,6 +27,7 @@ export const App: React.FC = () => {
 
                 <Footer/>
 
+                <Popups/>
             </Compose>
         </ConfigProvider>
     </div>

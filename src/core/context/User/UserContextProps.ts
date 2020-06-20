@@ -1,6 +1,6 @@
-import { UserContract } from './UserContext.model'
+import { Store } from 'rc-field-form/lib/interface'
 
 export interface UserContextProps {
-    userData: UserContract | null
-    setUserData: (userData: UserContract | null) => void
+    userData: Store | null
+    setUserData: (userData: Store | null) => void
 }

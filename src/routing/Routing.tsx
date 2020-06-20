@@ -1,7 +1,7 @@
 import './Routing.scss'
 
 import React, { FC, useContext, useMemo } from 'react'
-import { MainPage, NotFoundPage } from 'pages'
+import { MainPage, NotFoundPage, ProfilePage } from 'pages'
 import { LoaderContext } from 'core/context'
 
 import { ROUTE_NAMES } from './routeNames.const'
@@ -25,6 +25,11 @@ export const Routing: FC = React.memo(() => {
                 {/* Главная страница */}
                 <Route path={ROUTE_NAMES.MAIN} exact>
                         <MainPage/>
+                </Route>
+
+                {/* Личный кабинет */}
+                <Route path={ROUTE_NAMES.PROFILE} >
+                        <ProfilePage/>
                 </Route>
 
                 {/* Ловушка неизвестных роутов */}
