@@ -1,4 +1,4 @@
-import './MainMenu.scss'
+import './MainMenu.sass'
 import React, { FC, useMemo } from 'react'
 import { NavLink } from 'react-router-dom'
 import { MAIN_MENU_ITEMS } from './consts'

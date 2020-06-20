@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css'
 import './index.sass'
 
 import React from 'react'
