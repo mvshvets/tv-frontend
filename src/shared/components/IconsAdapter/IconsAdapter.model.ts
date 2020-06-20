@@ -24,6 +24,8 @@ export type IconType =
     | 'RightOutlined'
     | 'LikeOutlined'
     | 'LockOutlined'
+    | 'FolderAddOutlined'
+    | 'LinkOutlined'
 
 export interface IconsAdapterProps
     extends Pick<

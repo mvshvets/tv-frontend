@@ -1,7 +1,7 @@
 export const HEADHUNTER_ITEMS = {
     vacancy: [
         {
-            name: 'В Пензе',
+            name: 'В Ростове',
             stat: 12
         },
         {
@@ -16,7 +16,7 @@ export const HEADHUNTER_ITEMS = {
 
     averageSalary: [
         {
-            name: 'В Пензе',
+            name: 'В Ростове',
             stat: '45 т.р.'
         },
         {
