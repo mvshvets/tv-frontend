@@ -2,7 +2,7 @@ import React  from 'react'
 import { ConfigProvider } from 'antd'
 import ru_RU from 'antd/es/locale/ru_RU'
 import './App.sass'
-import { Header } from 'core/components'
+import { Header, Footer } from 'core/components'
 import { Compose } from 'shared/components'
 import { Routing } from 'routing'
 import { DocumentTitleContextProvider, LoaderContextProvider, UserContextProvider } from 'core/context'
@@ -22,6 +22,8 @@ export const App: React.FC = () => {
                 <Header/>
 
                 <Routing />
+
+                <Footer/>
 
             </Compose>
         </ConfigProvider>
