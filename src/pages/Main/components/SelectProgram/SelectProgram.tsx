@@ -6,7 +6,6 @@ import Bag from 'shared/image/bag.png'
 import { SelectProgramProps } from './SelectProgram.model'
 
 export const SelectProgram: FC<SelectProgramProps> = React.memo(({ data, ...props }) => {
-    console.log(data)
     return (
         <div className={'select-program'}>
             {data ? <>
