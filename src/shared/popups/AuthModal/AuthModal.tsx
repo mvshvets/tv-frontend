@@ -5,7 +5,7 @@ import './AuthModal.sass'
 import { PopupAdapterFormProps } from '../PopupAdapter.model'
 
 export const AuthModal: React.FC<PopupAdapterFormProps> = React.memo((props) => {
-       const { onRequestFinish, ...restProps } = props
+       const { onRequestFinish } = props
 
     const handleFinish = useCallback(
         (values) => {
