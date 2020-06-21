@@ -17,7 +17,7 @@ export const MainMenu: FC = React.memo(() => {
                     </NavLink>
                 ))}
                 {userData && <NavLink to={ROUTE_NAMES.PROFILE} key={ROUTE_NAMES.PROFILE}>
-                    {userData.login}
+                    {userData.name}
                 </NavLink>}
             </>,
 

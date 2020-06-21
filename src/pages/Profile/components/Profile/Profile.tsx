@@ -1,16 +1,17 @@
 import './Profile.sass'
 
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
 import { Col, Form, Row, Button } from 'antd'
 import { IconsAdapter, InputControl, SelectControl } from 'shared/components'
-import { LABEL_COL, PROFILE_STAT, WORK_ITEMS } from './consts'
+import { LABEL_COL, WORK_ITEMS } from './consts'
 import Teacher2 from 'shared/image/teacher2.png'
+import { UserContext } from 'core/context'
 
 export const Profile: FC = React.memo(() => {
-
-    return (
-        <Form id={'subjectData'} colon={false} className={'profile-tab'}>
+    const { userData } = useContext(UserContext)
+    return <>
+        {userData ? <Form id={'subjectData'} colon={false} className={'profile-tab'}>
             <Row gutter={90}>
                 <Col xs={12}>
                     <Row style={{ marginBottom: 10, fontSize: 16 }}>
@@ -23,7 +24,7 @@ export const Profile: FC = React.memo(() => {
                         labelCol={LABEL_COL}
                         labelAlign={'left'}
                     >
-                        <InputControl placeholder={'Маврин'}/>
+                        <InputControl placeholder={userData.name.split(' ', 1)}/>
                     </Form.Item>
                     <Form.Item
                         name={'name'}
@@ -31,7 +32,7 @@ export const Profile: FC = React.memo(() => {
                         labelCol={LABEL_COL}
                         labelAlign={'left'}
                     >
-                        <InputControl placeholder={'Сергей'}/>
+                        <InputControl placeholder={userData.name.split(' ', 2)[1]}/>
                     </Form.Item>
                     <Form.Item
                         name={'patronymic'}
@@ -39,7 +40,7 @@ export const Profile: FC = React.memo(() => {
                         labelCol={LABEL_COL}
                         labelAlign={'left'}
                     >
-                        <InputControl placeholder={'Алексеевич'}/>
+                        <InputControl placeholder={userData.name.split(' ', 3)[2]}/>
                     </Form.Item>
                     <Form.Item
                         name={'academicDegree'}
@@ -67,7 +68,7 @@ export const Profile: FC = React.memo(() => {
                         labelCol={LABEL_COL}
                         labelAlign={'left'}
                     >
-                        <InputControl placeholder={'https://www.uri?authorId=57210738423'}/>
+                        <InputControl placeholder={userData.scopusLink}/>
                     </Form.Item>
                 </Col>
 
@@ -86,21 +87,50 @@ export const Profile: FC = React.memo(() => {
                     <Button type={'primary'}>Добавить место работы</Button>
 
                     <ul className={'stat-list__items'}>
-                        {PROFILE_STAT.map(el => {
-                            return <li key={el.key}>
-                                <Row style={{ justifyContent: 'space-between', display: 'flex', width: '100%', color: (Number(el.stat) < 2) ? '#f54d4d' : 'black'}} className={'stat-row'}>
-                                    <div>{el.value}</div>
-                                    <div>{el.stat}</div>
-                                </Row>
-                            </li>
-                        })}
+                        <li>
+                            <Row style={{ justifyContent: 'space-between', display: 'flex', width: '100%', color: 'black' }} className={'stat-row'}>
+                                <div>Число публикаций на "elibrary.ru"</div>
+                                <div>{15}</div>
+                            </Row>
+                        </li>
+                        <li>
+                            <Row style={{ justifyContent: 'space-between', display: 'flex', width: '100%', color: 'black' }} className={'stat-row'}>
+                                <div>Число публикаций в "РИНЦ"</div>
+                                <div>{8}</div>
+                            </Row>
+                        </li>
+                        <li>
+                            <Row style={{ justifyContent: 'space-between', display: 'flex', width: '100%', color: 'black' }} className={'stat-row'}>
+                                <div>Индекс Хирша по всем публикациям на "elibrary.ru"</div>
+                                <div>{3}</div>
+                            </Row>
+                        </li>
+                        <li>
+                            <Row style={{ justifyContent: 'space-between', display: 'flex', width: '100%', color: 'black' }} className={'stat-row'}>
+                                <div>Индекс Хирша по публикациям в "РИНЦ"</div>
+                                <div>{2}</div>
+                            </Row>
+                        </li>
+                        <li>
+                            <Row
+                                style={{
+                                    justifyContent: 'space-between',
+                                    display: 'flex',
+                                    width: '100%',
+                                    color: (userData.hirshIndex < 2) ? '#f54d4d' : 'black'
+                                }}
+                                className={'stat-row'}>
+                                <div>Индекс Хирша по ядру "РИНЦ"</div>
+                                <div>{userData.hirshIndex || 0}</div>
+                            </Row>
+                        </li>
                     </ul>
                 </Col>
             </Row>
             <div className={'img-profile-data'}>
                 <img src={Teacher2} alt={'Учитель'}/>
             </div>
-        </Form>
-
-    )
+        </Form> : <div>Загрузка...</div>
+        }
+    </>
 })

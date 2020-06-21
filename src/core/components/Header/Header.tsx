@@ -10,19 +10,24 @@ import { ROUTE_NAMES } from 'routing'
 import { Link } from 'react-router-dom'
 import { PopupAdapter, AuthModal } from 'shared/popups'
 import { Store } from 'rc-field-form/lib/interface'
+import { API } from 'api'
 
 export const Header: FC = React.memo(() => {
     const { userData, setUserData } = useContext(UserContext)
     const { setLoaderState } = useContext(LoaderContext)
     const history = useHistory()
 
-    const handleRequestFinish = useCallback((popupHandler: () => void) => async (values: Store) => {
+    const handleRequestFinish = useCallback((popupHandler: () => void) => (values: Store) => {
         try {
             setLoaderState(true)
             if (values.login === 'admin' && values.password === 'admin') {
                 popupHandler()
-                setUserData(values)
-                setTimeout(() => history.push(ROUTE_NAMES.PROFILE), 500)
+                API.getTeacherInfo('c2dbb4e8-a4a9-4f95-92a7-51749e6069fa')
+                    .then(res => {
+                            setUserData(res.data)
+                            history.push(ROUTE_NAMES.PROFILE)
+                        }
+                    )
             }
         } finally {
             setLoaderState(false)
