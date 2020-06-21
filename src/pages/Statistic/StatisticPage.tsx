@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import { PageContent } from 'core/components'
 import Image from './image.png'
 import Image1 from './image1.png'
-import Image2 from './image2.png'
+//import Image2 from './image2.png'
 
 export const StatisticPage: FC<StatisticPageProps> = React.memo(() => {
     const [programData, setProgramData] = useState<any>()
@@ -37,6 +37,22 @@ export const StatisticPage: FC<StatisticPageProps> = React.memo(() => {
                 <img src={Image} alt={'Картинка'}/>
                 <Divider type={'vertical'} style={{ margin: '10px 0', width: 2, height: 120 }}/>
                 <div className={'statistic__table-stat_back'}>
+                    <div className={'position'}>Индекс Хирша</div>
+                    <div className={'description'}>Доля преподавателей с индексом Хирша не менее 2 от общего числа преподавателей ОП</div>
+                    <Row className={'data'}>
+                        <Col className={'magic'}>
+                            <div className={'data__number'}>{programData.averageHirshIndex}</div>
+                        </Col>
+                        <Col className={'magic'}>
+                            <div className={'data__number'}><IconsAdapter iconType={(programData.averageHirshIndex.toFixed(1) < 10) ? 'DislikeOutlined' : 'LikeOutlined'} style={{
+                                fontSize: 20,
+                                color: programData.averageHirshIndex.toFixed(1) < 10 ? '#f54d4d' : '#5A6774'
+                            }}/></div>
+                        </Col>
+                    </Row>
+                </div>
+                <Divider type={'vertical'} style={{ margin: '10px 0', width: 2, height: 120 }}/>
+                <div className={'statistic__table-stat_back'}>
                     <div className={'position'}>Вакансии</div>
                     <div className={'description'}>Количество вакансий по данному направлению подготовки (по данным hh)</div>
                     <Row className={'data'}>
@@ -60,14 +76,14 @@ export const StatisticPage: FC<StatisticPageProps> = React.memo(() => {
                             <div className={'data__number'}>{programData.wageRatio.toFixed(1)}</div>
                         </Col>
                         <Col className={'magic'}>
-                            <div className={'data__number'}><IconsAdapter iconType={'DislikeOutlined'} style={{
+                            <div className={'data__number'}><IconsAdapter iconType={(programData.wageRatio.toFixed(1) < 2) ? 'DislikeOutlined' : 'LikeOutlined'} style={{
                                 fontSize: 20,
-                                color: programData.wageRatio.toFixed(1) < 2 ? '#f54d4d' : '#5A6774'
+                                color: (programData.wageRatio.toFixed(1) < 2) ? '#f54d4d' : '#5A6774'
                             }}/></div>
                         </Col>
                     </Row>
                 </div>
-                <img src={Image2} alt={'Картинка2'}/>
+                {/*<img src={Image2} alt={'Картинка2'}/>*/}
             </Row>
 
             <div className={'statistic__table-stat1'}>
