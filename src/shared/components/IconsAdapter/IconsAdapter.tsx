@@ -26,7 +26,8 @@ import {
     FolderAddOutlined,
     LinkOutlined,
     CloseCircleOutlined,
-    BankOutlined
+    BankOutlined,
+    DislikeOutlined
 } from '@ant-design/icons'
 
 import { IconsAdapterProps } from './IconsAdapter.model'
@@ -66,6 +67,7 @@ export const IconsAdapter: React.FC<IconsAdapterProps> = React.memo(
             LinkOutlined: <LinkOutlined {...restProps} />,
             CloseCircleOutlined: <CloseCircleOutlined {...restProps} />,
             BankOutlined: <BankOutlined {...restProps} />,
+            DislikeOutlined: <DislikeOutlined {...restProps} />,
         }
 
         return <>{iconType ? iconsLibrary[iconType] : ''}</>

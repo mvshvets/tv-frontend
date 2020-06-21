@@ -8,7 +8,7 @@ import { UserContext } from 'core/context'
 import { useHistory } from 'react-router-dom'
 import { ROUTE_NAMES } from 'routing'
 import { Tabs } from 'antd'
-import { Subject, Profile } from './components'
+import { Subject, Profile, Programs } from './components'
 
 const { TabPane } = Tabs
 
@@ -28,6 +28,9 @@ export const ProfilePage: FC<ProfileProps> = React.memo(({ id, className }) => {
                 </TabPane>
                 <TabPane tab="Дисциплины" key="2">
                     <Subject/>
+                </TabPane>
+                <TabPane tab="Программы" key="3">
+                    <Programs/>
                 </TabPane>
             </Tabs>
         </PageContent>

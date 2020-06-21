@@ -4,5 +4,7 @@ export const ROUTE_NAMES: RouteNamesProps = {
     /** Главная страница */
     MAIN: '/',
     /** Личный кабинет */
-    PROFILE: '/profile'
+    PROFILE: '/profile',
+    /** Статистика */
+    STATISTIC: '/statistic'
 }

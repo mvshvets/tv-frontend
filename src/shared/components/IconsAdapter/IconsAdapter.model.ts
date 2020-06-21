@@ -28,6 +28,7 @@ export type IconType =
     | 'LinkOutlined'
     | 'CloseCircleOutlined'
     | 'BankOutlined'
+    | 'DislikeOutlined'
 
 export interface IconsAdapterProps
     extends Pick<
