@@ -65,7 +65,7 @@ export const MainPage: FC = React.memo(() => {
                     id={'searchProgram'}
                     onFinish={handleFinish}
                 >
-                    <Row gutter={15}>
+                    <Row gutter={20}>
                         <Col xs={23}>
                             <Form.Item
                                 name="program"
